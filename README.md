@@ -1,1 +1,3 @@
 # stellar_classification
+This project applies machine learning techniques(SVM vs KNN) to classify celestial objects like stars, galaxies, and quasars using data from the SDSS17 dataset. By analyzing features such as magnitudes and redshift values, it implements and compares the performance of SVM and k-NN algorithms. The evaluation uses metrics like accuracy, precision, recall, and F1-score to identify strengths and weaknesses. The project aims to automate stellar classification and explores the potential for future improvements with deep learning, contributing to more efficient and scalable astronomical data analysis.
+link to dataset : https://www.kaggle.com/datasets/fedesoriano/stellar-classification-dataset-sdss17
