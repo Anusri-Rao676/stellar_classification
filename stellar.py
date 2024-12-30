@@ -18,23 +18,28 @@ from sklearn.metrics import classification_report, accuracy_score, confusion_mat
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+#import the dataset
 from google.colab import files
 uploaded = files.upload()
 
 data = pd.read_csv(list(uploaded.keys())[0])
 
+#checking if the dataset has been imported properly
 print(data.head())
 
 print(data.info())
 
+#identifying features
 features = ['u', 'g', 'r', 'i', 'z', 'redshift']
 
 X = data[features]
 
 y = data['class']
 
+#assigning categorical values [0-> star 1->galaxy 2->quasar]
 y = y.astype('category').cat.codes
 
+#training the model
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 scaler = StandardScaler()
@@ -57,6 +62,7 @@ print(classification_report(y_test, y_pred_svm))
 print("k-NN Classification Report:")
 print(classification_report(y_test, y_pred_knn))
 
+#plotting the confusion matrix
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 sns.heatmap(confusion_matrix(y_test, y_pred_svm), annot=True, fmt="d", ax=axes[0], cmap="Blues")
 axes[0].set_title("SVM Confusion Matrix")
